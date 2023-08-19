@@ -35,7 +35,7 @@
                             <label for="form_name">Image *</label>
                             <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" required autocomplete="image" autofocus
                                    onchange="checkImage(this)">
-                            <img id = "output" src="{{asset('public/icons8-image-50.png')}}" alt="..." class="img-thumbnail">
+                            <img id = "output" src="{{ asset('icons8-image-50.png')}}" alt="..." class="img-thumbnail">
                             @error('image')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -65,7 +65,7 @@
             var image = new Image();
             image.onload = function() {
                 if (this.width) {
-                    document.getElementById('output').src = window.URL.createObjectURL(e.files[0])
+                    document.getElementById('output').src = window.URL.createObjectURL(input.files[0])
                 }
             };
             image.src = URL.createObjectURL(file);
